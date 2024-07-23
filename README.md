@@ -86,10 +86,3 @@ The `blog` app includes the following main views:
 - Simple JWT: For JWT authentication
 - drf-yasg: For Swagger/OpenAPI documentation
 
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
