@@ -58,7 +58,6 @@ INSTALLED_APPS = [
     "corsheaders",
     "drf_yasg",
     'cloudinary',
-    'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic'
     # 'cloudinary_storage',
 ]
