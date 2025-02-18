@@ -31,10 +31,11 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost:5173", "https://dm-blog.netlify.app/", "dm-blog.netlify.app", "localhost:5174 ", "127.0.0.1", "http://127.0.0.1:8000",]
+ALLOWED_HOSTS = ["localhost:5173", "https://dm-blog.netlify.app/", "lesser-hawk-htcode-9cbcc466.koyeb.app" "dm-blog.netlify.app", "localhost:5174 ", "127.0.0.1", "http://127.0.0.1:8000",]
 
 CORS_ALLOWED_ORIGINS = [
     "https://dm-blog.netlify.app",
+    'lesser-hawk-htcode-9cbcc466.koyeb.app',
     "http://localhost:5173",
     "http://localhost:5174",
     "http://127.0.0.1:5173",
