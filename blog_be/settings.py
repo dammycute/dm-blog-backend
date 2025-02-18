@@ -14,8 +14,8 @@ from pathlib import Path
 import os
 from datetime import timedelta
 from dotenv import load_dotenv
+
 load_dotenv()
-from decouple import config
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,14 +26,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-mfad^x!uyz_(@o098tl49%2i4busg#ialcbqjc%8d5(z(tkxb("
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost:5173", "localhost:5174 ", "127.0.0.1", "http://127.0.0.1:8000",]
+ALLOWED_HOSTS = ["localhost:5173", "https://dm-blog.netlify.app/", "dm-blog.netlify.app", "localhost:5174 ", "127.0.0.1", "http://127.0.0.1:8000",]
 
 CORS_ALLOWED_ORIGINS = [
+    "https://dm-blog.netlify.app",
     "http://localhost:5173",
     "http://localhost:5174",
     "http://127.0.0.1:5173",
@@ -57,7 +58,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "drf_yasg",
     'cloudinary',
-    'cloudinary_storage',
+    # 'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -88,28 +89,34 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }
 
+
+SWAGGER_SETTINGS = {
+   'SECURITY_DEFINITIONS': {
+      'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+      }
+   }
+}
+
 import cloudinary
 # config('CLOUDINARY_API_KEY')
 # config('CLOUDINARY_API_SECRET')
 cloudinary.config(
-    cloud_name= 'htcode',
-    api_key= '636962719547143',
-    api_secret= 'QBD214WtRcunkRP3s4YGcTI5-v0',
+    cloud_name= os.getenv('CLOUD_NAME'),
+    api_key= os.getenv('API_KEY'),
+    api_secret= os.getenv('API_SECRET'),
     # secure = True
 )
 
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'htcode',
-    'API_KEY': '636962719547143',
-    'API_SECRET': 'QBD214WtRcunkRP3s4YGcTI5-v0',
-    'SECURE': True
-}
+
 
 import cloudinary.uploader
 import cloudinary.api
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 ROOT_URLCONF = "blog_be.urls"
 
@@ -176,6 +183,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+
 
 STATIC_URL = "static/"
 MEDIA_URL = "/media/"
