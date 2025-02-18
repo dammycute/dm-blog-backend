@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     "corsheaders",
     "drf_yasg",
     'cloudinary',
+    'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic'
     # 'cloudinary_storage',
 ]
 
@@ -69,7 +71,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "corsheaders.middleware.CorsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",    
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.middleware.common.CommonMiddleware",
 ]
 
