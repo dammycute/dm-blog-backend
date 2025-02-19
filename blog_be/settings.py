@@ -35,7 +35,7 @@ ALLOWED_HOSTS = ["localhost:5173", "https://dm-blog.netlify.app/", "lesser-hawk-
 
 CORS_ALLOWED_ORIGINS = [
     "https://dm-blog.netlify.app",
-    'lesser-hawk-htcode-9cbcc466.koyeb.app',
+    'https://lesser-hawk-htcode-9cbcc466.koyeb.app',
     "http://localhost:5173",
     "http://localhost:5174",
     "http://127.0.0.1:5173",
