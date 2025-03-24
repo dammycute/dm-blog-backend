@@ -30,3 +30,13 @@ class Blog(models.Model):
 class ImageUploadModel(models.Model):
     image = CloudinaryField('images', blank=True, null=True)
     
+class Comment(models.Model):
+    post = models.ForeignKey(to=Blog, on_delete=models.CASCADE)
+    comment = models.TextField()
+    name = models.CharField(max_length=200)
+    date_posted = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name + " commented on " + self.post.title
+    
+    

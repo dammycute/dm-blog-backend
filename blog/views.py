@@ -71,3 +71,10 @@ class BlogPostRetrievalView(generics.RetrieveAPIView):
 class ImageUploadView(generics.ListCreateAPIView):
     queryset = ImageUploadModel.objects.all()
     serializer_class = ImageUploadSerializer
+    
+
+class CommentView(generics.ListCreateAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+    # permission_classes = (IsAuthenticated,)
+    
