@@ -6,13 +6,13 @@ from cloudinary.models import CloudinaryField
 
 class Blog(models.Model):
     CATEGORY = [
-        ('lifestyle', 'Lifestyle'),
-        ('technology', 'Technology'),
-        ('culture', 'Culture'),
-        ('sports', 'Sports'),
-        ('business', 'Business'),
-        ('travel', 'Travel'),
-        ('economy', 'Economy'),
+        ('Lifestyle', 'Lifestyle'),
+        ('Technology', 'Technology'),
+        ('Culture', 'Culture'),
+        ('Sports', 'Sports'),
+        ('Business', 'Business'),
+        ('Travel', 'Travel'),
+        ('Economy', 'Economy'),
     ]
     title = models.CharField(max_length=200)
     post = models.TextField(blank=True, null=True)
